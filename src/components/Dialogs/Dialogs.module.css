@@ -1,0 +1,9 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.dialogs ul {
+    margin: 0;
+    border: 1px solid black;
+}

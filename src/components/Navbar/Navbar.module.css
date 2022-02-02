@@ -1,0 +1,18 @@
+
+
+nav {
+  background-color: #3db73d;
+  min-height: 500px;
+}
+
+.item {
+  color: white;
+}
+
+.item.ss {
+  color: green;
+}
+
+.active {
+  color: black;
+}

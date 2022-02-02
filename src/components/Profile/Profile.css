@@ -1,0 +1,10 @@
+
+
+main {
+  background-color: #2687ff;
+  min-height: 500px;
+}
+
+main img {
+  max-width: 100%;
+}
