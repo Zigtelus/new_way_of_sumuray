@@ -6,11 +6,7 @@ import Profileinfo from './Profileinfo/Profileinfo'
 const Profile = (props)=> {
     return <main>
       <Profileinfo />
-      <MyPostsContainer
-        store={props.store}
-        // profilePage={props.profilePage}
-        // dispatch={props.dispatch}
-      />
+      <MyPostsContainer />
     </main>
 }
 

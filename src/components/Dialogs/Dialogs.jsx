@@ -1,5 +1,4 @@
-// import { updateMessageCreator, sendMessageCreator } from '../../Redux/Redux'
-import { sendMessageCreator, updateMessageCreator } from '../../Redux/dialogs-reducer'
+
 import DialogItem from './Dialogitem/Dialogitem'
 import classessGreg from './Dialogs.module.css'
 import Message from './Message/Message'
@@ -16,7 +15,6 @@ const Dialogs = (props)=> {
     const messagesElement = props.dialogsPage.messages.map(item => <Message key={item.id} message={item.message}/>)
     let newMessageBody = state.newMessageBody
 
-    debugger
     
     const onSendMessageClick = ()=> {
         props.sendMessage()
@@ -25,9 +23,7 @@ const Dialogs = (props)=> {
 
     const onNewMessageChange = (e)=> {
         const body = e.target.value
-        debugger
         props.updateMessageBody(body)
-        
     }
 
 

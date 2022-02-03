@@ -62,7 +62,6 @@ const store = {
         this._callSubscriber = observer
     },
     dispatch(action) {
-        debugger
 
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)

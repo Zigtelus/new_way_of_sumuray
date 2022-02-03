@@ -14,6 +14,5 @@ let reducers = combineReducers({
 
 let store = createStore(reducers)
 
-debugger
 
 export default store

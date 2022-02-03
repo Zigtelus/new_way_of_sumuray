@@ -3,7 +3,7 @@ const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
 
 
 export const sendMessageCreator = ()=> ({type: SEND_MESSAGE})
-export const updateMessageCreator = (text)=> ({type: UPDATE_NEW_MESSAGE_BODY, text})
+export const updateNewMessageBodyCreator = (text)=> ({type: UPDATE_NEW_MESSAGE_BODY, text})
 
 
 let initialState = {
