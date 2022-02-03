@@ -6,7 +6,39 @@ export const sendMessageCreator = ()=> ({type: SEND_MESSAGE})
 export const updateMessageCreator = (text)=> ({type: UPDATE_NEW_MESSAGE_BODY, text})
 
 
-const dialogsReducer = (state, action)=> {
+let initialState = {
+    dialogs: [
+        {
+            id: 1,
+            name: 'Valera'
+        },
+        {
+            id: 2,
+            name: 'Mark'
+        },
+        {
+            id: 3,
+            name: 'Elena'
+        }
+    ],
+    messages: [
+        {
+            id: 1,
+            message: 'Hy My name is Petr'
+        },
+        {
+            id: 2,
+            message: 'MI dont belive youark'
+        },
+        {
+            id: 3,
+            message: 'Elena I dont belive you'
+        }
+    ],
+    newMessageBody: ''
+}
+
+const dialogsReducer = (state = initialState, action)=> {
     switch (action.type) {
 
         case SEND_MESSAGE: 

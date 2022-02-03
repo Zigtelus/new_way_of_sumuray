@@ -9,32 +9,38 @@ import Message from './Message/Message'
 
 const Dialogs = (props)=> {
 
+    
+    const state = props.dialogsPage
+    
+    const dialogsElement = props.dialogsPage.dialogs.map(item => <DialogItem link='/dialogs/' key={item.id} id={item.id} name={item.name} />)
+    const messagesElement = props.dialogsPage.messages.map(item => <Message key={item.id} message={item.message}/>)
+    let newMessageBody = state.newMessageBody
+
+    debugger
+    
+    const onSendMessageClick = ()=> {
+        props.sendMessage()
+    }
 
 
     const onNewMessageChange = (e)=> {
-        const text = e.target.value
-        const action = updateMessageCreator(text)
-        props.dispatch(action)
+        const body = e.target.value
+        debugger
+        props.updateMessageBody(body)
+        
     }
 
-    const onSendMessageClick = (e)=> {
-        const action = sendMessageCreator()
-        props.dispatch(action)
-    }
-
-    const elementDialog = props.messagesPage.dialogs.map(item => <DialogItem link='/dialogs/' key={item.id} id={item.id} name={item.name} />)
-    const elementMessage = props.messagesPage.messages.map(item => <Message key={item.id} message={item.message}/>)
 
     return <div className={classessGreg.dialogs}>
         <ul>
-            {elementDialog}
+            {dialogsElement}
         </ul>
         <div>
             <div className="">
-                <textarea onChange={onNewMessageChange} value={props.messagesPage.newMessageBody} rows="7"></textarea>
+                <textarea onChange={onNewMessageChange} value={newMessageBody} rows="7"></textarea>
                 <button onClick={onSendMessageClick}>send</button>
             </div>
-            {elementMessage}
+            {messagesElement}
         </div>
     </div>
 }
@@ -45,3 +51,9 @@ export default Dialogs
 // onSendMessageClick
 
 // onNewMessageChange
+// 35+11+13+18+12+17+22+17+11+16
+// 26+13+21+39+26+19+22+12+21+22+16
+// 13+13+23+19+29+32+10+26+25+29 
+// 20+23+24+36+19+22+27+34+25+53
+// 28+29+40+43+29+21+20+42+62+19
+// 29+43+40+29+28+53+25+35+27+22+19+36+24+23+20+
