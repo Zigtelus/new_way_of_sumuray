@@ -1,9 +1,9 @@
 import React from 'react'
-import { addPostActionCreate, onChengeElementActionCreate } from '../../../Redux/profile-reducer'
+// import { addPostActionCreate, onChengeElementActionCreate } from '../../../Redux/profile-reducer'
 import Post from "./Post/Post"
 
 const MyPosts = (props)=> {
-    debugger
+  
     const postElements = props.posts.map(item => <Post message={item.message} key={item.id} like={item.like} />)
 
     const newPostElement = React.createRef()
@@ -14,6 +14,7 @@ const MyPosts = (props)=> {
 
      const onPostChange = ()=> {
       const text = newPostElement.current.value
+      debugger
       props.updateNewPostText(text)
     }
 

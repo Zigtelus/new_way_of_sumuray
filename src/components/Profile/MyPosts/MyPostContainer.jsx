@@ -1,42 +1,60 @@
-import React from 'react'
+
+import { connect } from 'react-redux'
 import { addPostActionCreate, onChengeElementActionCreate } from '../../../Redux/profile-reducer'
-import StoreContext from '../../../storeContext'
 import MyPosts from './MyPost'
-import Post from "./Post/Post"
 
-const MyPostsContainer = (props)=> {
+// const MyPostsContainer = (props)=> {
   
-    // let state = props.store.getState()
+//     // let state = props.store.getState()
 
 
-    return (
-      <StoreContext.Consumer> 
-      {
-        (store) => {
-          let state = store.getState()
-
-          const postElement = state.profilePage.posts.map(item => <Post message={item.message} key={item.id} like={item.like} />)
-
-          const newPostElement = React.createRef()
+//     return (
+//       <StoreContext.Consumer> 
+//       {
+//         (store) => {
+//           let state = store.getState()
       
-          const addPost = ()=> {
-            const action = addPostActionCreate()
-            store.dispatch(action)
-          }
+//           const addPost = ()=> {
+//             store.dispatch(addPostActionCreate())
+//           }
       
-          const onPostChange = (text)=> {
-            const action = onChengeElementActionCreate(text)
-            store.dispatch(action)
-          }
+//           const onPostChange = (text)=> {
+//             const action = onChengeElementActionCreate(text)
+//             store.dispatch(action)
+//           }
           
-          return <MyPosts addPost={addPost} 
-                updateNewPostText={onPostChange} 
-                posts={state.profilePage.posts} 
-                newPostText={state.profilePage.newPostText}/>
-        }
-      }
-      </StoreContext.Consumer>
-    )
+//           return <MyPosts addPost={addPost} 
+//                 updateNewPostText={onPostChange} 
+//                 posts={state.profilePage.posts} 
+//                 newPostText={state.profilePage.newPostText}/>
+//         }
+//       }
+//       </StoreContext.Consumer>
+//     )
+// }
+
+
+const mapStateToProps = state => {
+  return {
+    posts: state.profilePage.posts,
+    newPostText: state.profilePage.newPostText
+  }
 }
+
+const mapDispatchToProps = dispatch => {
+  console.log('profilePage')
+  return {
+        updateNewPostText: (text) => {
+          const action = onChengeElementActionCreate(text)
+          dispatch(action)
+        },
+        addPost: ()=> {
+          const action = addPostActionCreate()
+          dispatch(action)
+        }
+  }
+}
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
 
 export default MyPostsContainer

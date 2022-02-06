@@ -13,6 +13,7 @@ const Navbar = ()=> {
         <li><NavLink to="/news" className={(navData) => linkActive(navData) } >News</NavLink></li>
         <li><NavLink to="/music" className={(navData) => linkActive(navData) } >Music</NavLink></li>
         <li><NavLink to="/settings" className={(navData) => linkActive(navData) } >Settings</NavLink></li>
+        <li><NavLink to="/users" className={(navData) => linkActive(navData) } >Users</NavLink></li>
       </ul>
     </nav>
 }
